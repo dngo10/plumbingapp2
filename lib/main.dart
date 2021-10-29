@@ -150,7 +150,7 @@ class _ListContainer extends State<ListContainer>{
                           child: const Icon(Icons.restart_alt),
                           margin: const EdgeInsets.only(right: 5),
                         ),                     
-                        Text("Reset")
+                        const Text("Reset")
                       ],
                     ),
                   ),
