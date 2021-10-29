@@ -1,0 +1,4 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/windows/runner",
+    "cmake.configureOnOpen": true
+}

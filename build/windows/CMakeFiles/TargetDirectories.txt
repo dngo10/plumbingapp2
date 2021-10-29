@@ -1,0 +1,13 @@
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/CMakeFiles/INSTALL.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/CMakeFiles/ALL_BUILD.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/CMakeFiles/ZERO_CHECK.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/flutter/CMakeFiles/flutter_wrapper_app.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/flutter/CMakeFiles/flutter_assemble.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/flutter/CMakeFiles/INSTALL.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/runner/CMakeFiles/myapp2.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/runner/CMakeFiles/INSTALL.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/runner/CMakeFiles/ALL_BUILD.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/plugins/url_launcher_windows/CMakeFiles/url_launcher_windows_plugin.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/plugins/url_launcher_windows/CMakeFiles/INSTALL.dir
+C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/plugins/url_launcher_windows/CMakeFiles/ALL_BUILD.dir

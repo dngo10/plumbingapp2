@@ -1,0 +1,10 @@
+^C:\USERS\DNGO\DESKTOP\ABC\DART_APP\ABC\DART1\MYAPP2\BUILD\WINDOWS\CMAKEFILES\307213A5D6CF28BBFF63E73E1AE69E56\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/windows -BC:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/dngo/Desktop/abc/dart_APP/abc/Dart1/myapp2/build/windows/myapp2.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
