@@ -7,6 +7,7 @@ import 'package:myapp2/fixture-controller/fl_controller.dart';
 class WaterHeaterChoice extends ChangeNotifier{
   final String all = "All";
   final double any = -1;
+
   List<WaterHeater1> wHeaters = [];
   Set<String> brandsS = {"All"}; 
   Set<double> maxCapS = {-1};
@@ -78,6 +79,7 @@ class WaterHeaterChoice extends ChangeNotifier{
       pumpType: map[pumpType],
     };
     choosenOne.fromMap(map[_choosenOne] as Map<String, dynamic>);
+    notifyListeners();
   }
 
   Future<double> readFile() async{
@@ -130,7 +132,7 @@ class WaterHeaterChoice extends ChangeNotifier{
       (requestPara[eFNs] == any ? true : element.eFactor >= requestPara[eFNs]) &&
       (requestPara[pumpType] == all ? true : element.pumpType == requestPara[pumpType])
     ).toList();
-    
+    FixtureController.setUpPreviousChoice = false;
     notifyListeners();
 
     return chosenWeaterHeaters;

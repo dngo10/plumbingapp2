@@ -17,6 +17,8 @@ class FixtureController{
   static String url = "https://service9.de/api/data";
   static bool isEditing = false;
 
+  static bool setUpPreviousChoice = true;
+
   static Uri uri =  Uri.parse(url);
 
   static FixtureList fl = FixtureList();

@@ -41,6 +41,7 @@ class FixtureList extends ChangeNotifier{
       fix.fromMap(m);
       _currentFixtureList.add(fix);
     }
+    notifyListeners();
   }
 
   Future<List<Fixture>> getFixtureList() async {

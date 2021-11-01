@@ -218,7 +218,7 @@ class _WaterHeatersChoosing extends State<WaterHeatersChoosing>{
 }
 
 class DropDownMenu<T> extends StatefulWidget{
-  List<T> items = [];
+  List<T> items = <T>[];
   String hKey = '';
   DropDownMenu(this.hKey, this.items, {Key? key}) : super(key: key);
 
@@ -229,30 +229,54 @@ class DropDownMenu<T> extends StatefulWidget{
 }
 
 class _DropdownMenu<T> extends State<DropDownMenu>{
-  List<T> items = <T>[];
   var value;
-  String hKey = '';
 
   _DropdownMenu(){
-    
-    if(T == String){
-      if(!items.isEmpty){
-        value = items[0];
+  }
+
+  T getInitValue(){
+    if(FixtureController.setUpPreviousChoice){
+      if(widget.hKey == FixtureController.whc.brand){
+        return _getInitValueHelp(FixtureController.whc.choosenOne.brand as T, widget.items as List<T>);
+      }else if(widget.hKey == FixtureController.whc.maxCap){
+        return _getInitValueHelp(FixtureController.whc.choosenOne.maxCap as T, widget.items as List<T>);
+      }else if(widget.hKey == FixtureController.whc.maxCap45){
+        return _getInitValueHelp(FixtureController.whc.choosenOne.capAt45 as T, widget.items as List<T>);
+      }else if(widget.hKey == FixtureController.whc.btu){
+        return _getInitValueHelp(FixtureController.whc.choosenOne.btu as T, widget.items as List<T>);
+      }else if(widget.hKey == FixtureController.whc.eFNs){
+        FixtureController.setUpPreviousChoice  = false; // MUST BE PUT HERE, AS IT IS THE LAST ITEM OF FIRST BUILD
+        return _getInitValueHelp(FixtureController.whc.choosenOne.eFactor as T, widget.items as List<T>);
+      }else if(widget.hKey == FixtureController.whc.pumpType){
+        return _getInitValueHelp(FixtureController.whc.choosenOne.pumpType as T, widget.items as List<T>);
       }else{
-        value = 'All'; // This should never happen
+        value = widget.items[0];
+        return value;
       }
-      
-    }else if(T == double){
-      value = -1.0;
+    }else{
+      value = widget.items[0];
+      return value;
     }
   }
 
+  T _getInitValueHelp(T current, List<T> items){
+    for(int i = 0; i < items.length ; i++){
+      if(current == items[i]){
+        return current;
+      }
+    }
+    return items[0];
+  }
   @override
   Widget build(BuildContext context) {
-    hKey = widget.hKey;
-    items = <T>[...widget.items];
+    if(FixtureController.setUpPreviousChoice){
+      value = getInitValue();
+    }else {
+      value ??= widget.items[0];
+    }
 
-    if(items.isEmpty){
+
+    if(widget.items.isEmpty){
       return const Text("Loading");
     }
 
@@ -263,11 +287,12 @@ class _DropdownMenu<T> extends State<DropDownMenu>{
       iconSize: 20,
       onChanged: (T? newValue) {
         setState(() {
-          FixtureController.whc.requestPara[hKey] = newValue;
+          FixtureController.whc.requestPara[widget.hKey] = newValue;
           value = newValue!;
         });
       },
-      items: items.map<DropdownMenuItem<T>>((T e){
+      items: widget.items.map<DropdownMenuItem<T>>((dynamic e){
+        e = e as T;
         return DropdownMenuItem(
           value: e,
           child: Text(getValue(e)),
@@ -445,15 +470,15 @@ class _currentChoosen extends State<CurrentChoosen>{
             ],
           ),
 
-          Row(children:
-            [
-              SizedBox(child: const Text('Link: '), width: wid),
-              ElevatedButton(
-                              child: const Icon(Icons.link),
-                              onPressed: (){_launchURL(FixtureController.whc.choosenOne.link);},
-                            ),
-            ],
-          ),
+          //Row(children:
+          //  [
+          //    SizedBox(child: const Text('Link: '), width: wid),
+          //    ElevatedButton(
+          //                    child: const Icon(Icons.link),
+          //                    onPressed: (){_launchURL(FixtureController.whc.choosenOne.link);},
+          //                  ),
+          //  ],
+          //),
         ],
       )
     );
