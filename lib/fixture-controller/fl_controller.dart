@@ -63,7 +63,9 @@ class FixtureController{
 
   static void fromJson(String json){
     Map<String, dynamic> result = jsonDecode(json);
-    uuid = result[_uuid] as String;
+    if(result.containsKey(_uuid)){
+      uuid = result[_uuid] as String;
+    }
     Map<String, dynamic> data1 = jsonDecode(result[_data]);
     fl.fromMap(data1[_fixtureList] as Map<String, dynamic>);
     whc.fromMap(data1[_waterHeaterChoice] as Map<String, dynamic>);
