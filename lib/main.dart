@@ -79,7 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: IconButton(onPressed: ()=>{}, icon: const Icon(Icons.access_time)),
         centerTitle: true,
       ),
-      floatingActionButton:  FloatingActionButton(onPressed: () => {
+      floatingActionButton:  FloatingActionButton(
+                tooltip: "Add New Fixture",
+                onPressed: () => {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => EditPage(Fixture.newBlank())))},
                  child: const Icon(Icons.add), mini: false,),
     );
@@ -173,7 +175,7 @@ class _ListContainer extends State<ListContainer>{
                     color: Theme.of(context).primaryColor
                     ),
                   Text(
-                    "Calculate Results",
+                    "Show Water Demand (GPM) of each method",
                     style: TextStyle(color: Theme.of(context).primaryColor )
                   )
                 ]),

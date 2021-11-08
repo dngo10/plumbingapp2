@@ -16,6 +16,8 @@ class Fixture{
   double? hotWaterFixtureUnit = 0;
 
   double? curP = -9999;
+  String tag = ""; // tag of label
+  String num = ""; // num of label
 
   //==========================
   final _nameN = "name";
@@ -30,6 +32,9 @@ class Fixture{
   final _coldWaterFixtureUnitN = "coldWaterFixtureUnit";
   final _hotWaterFixtureUnitN = "hotWaterFixtureUnit";
 
+  final String _tagN = "tag"; // tag of label
+  final String _numN = "num"; // num of label 
+
   Fixture(this.name, 
           this.p1,
           this.gpm,
@@ -39,7 +44,9 @@ class Fixture{
 
           this.fixtureUnit,
           this.coldWaterFixtureUnit,
-          this.hotWaterFixtureUnit
+          this.hotWaterFixtureUnit,
+          this.tag,
+          this.num
           );
 
   Fixture.newBlank(){}
@@ -55,7 +62,9 @@ class Fixture{
       _p20N : p20,
       _fixtureUnitN : fixtureUnit,
       _coldWaterFixtureUnitN : coldWaterFixtureUnit,
-      _hotWaterFixtureUnitN : hotWaterFixtureUnit
+      _hotWaterFixtureUnitN : hotWaterFixtureUnit,
+      _tagN : tag,
+      _numN : num,
     };
   }
 
@@ -70,6 +79,8 @@ class Fixture{
     fixtureUnit = map[_fixtureUnitN] as double?;
     coldWaterFixtureUnit = map[_coldWaterFixtureUnitN] as double?;
     hotWaterFixtureUnit = map[_hotWaterFixtureUnitN] as double?;
+    tag = map[_tagN] as String;
+    num = map[_numN] as String;
 
     getProbability(FixtureController.fl.numberOfApartment);
   }
@@ -91,6 +102,8 @@ class Fixture{
     fixtureUnit = fixture.fixtureUnit;  
     hotWaterFixtureUnit = fixture.hotWaterFixtureUnit;
     coldWaterFixtureUnit = fixture.coldWaterFixtureUnit;
+    num = fixture.num;
+    tag = fixture.tag;
   }
 
   void getProbability(int numOfApartment){

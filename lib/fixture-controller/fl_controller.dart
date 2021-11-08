@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:myapp2/fixture-controller/tag.dart';
 import 'package:myapp2/waterheater_calculator/data_fu.dart';
 import 'package:myapp2/waterheater_calculator/exhaustive_enumeration_2.dart';
 import 'package:myapp2/waterheater_calculator/hunter.dart';
@@ -83,6 +84,35 @@ class FixtureController{
         isEditing = true;
         await Clipboard.setData(const ClipboardData(text: ''));  
         FixtureController.fromJson(response.body);
+      }
+    }else{
+      try{
+        var data = json.decode(temp.trim()) as Map<String, dynamic>;
+
+        List<dynamic> pretags = data["data"] as List<dynamic>;
+        List<Tag> tags = [];
+        for(dynamic dyna in pretags){
+          Map<String, dynamic> t = dyna as Map<String, dynamic>;
+          Tag tag = Tag();
+          tag.fromMap(t);
+          tags.add(tag);
+        }
+
+        List<Fixture> selectedFixture = [];
+
+        for(Tag tag in tags){
+          for(Fixture fixture in FixtureController.fl.getInitialItems()){
+            if(tag.name.trim() == fixture.tag.trim() && tag.num.trim() == fixture.num.trim()){
+              Fixture fix = Fixture.newBlank();
+              fix.copy(fixture);
+              fix.amount = tag.amount;
+              fix.getProbability(FixtureController.fl.numberOfApartment);
+              FixtureController.fl.addItemInitial(fix);
+            } 
+          }
+        }
+      }on FormatException catch(e){
+        print("couldn't get json needed, error: ${e.message}");
       }
     }
   }

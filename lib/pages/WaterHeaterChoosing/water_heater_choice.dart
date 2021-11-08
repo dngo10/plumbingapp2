@@ -95,7 +95,7 @@ class _WaterHeaterChoosing extends State<WaterHeaterChoosing>{
                       CurrentChoosen(),
                       Container(
                         child: ElevatedButton(
-                          child: const Text("SUBMIT"),
+                          child: const Text("ADD TABLE TO DRAWING"),
                           onPressed: (){
                             String jso = FixtureController.toJson();
                             String chossenJson = FixtureController.whc.choosenOne.toJson();

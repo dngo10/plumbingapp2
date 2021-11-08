@@ -36,6 +36,7 @@ class EditPage extends StatelessWidget{
       ),
       body: getDataInputInterface(),
       floatingActionButton: FloatingActionButton(
+        tooltip: isNew ? "Insert to table" : "Done Editing",
         child: isNew ? const Icon(Icons.add_shopping_cart) : const Icon(Icons.published_with_changes),
         onPressed: (){
           if(isNew){

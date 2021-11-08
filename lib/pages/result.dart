@@ -59,6 +59,7 @@ class _ResultPage extends State<ResultPage>{
             ]),
         ),
         floatingActionButton: FloatingActionButton(
+          tooltip: "Now Choose Water Heater",
           onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WaterHeaterChoosing()));},
           child: const Icon(Icons.hot_tub),
           ),

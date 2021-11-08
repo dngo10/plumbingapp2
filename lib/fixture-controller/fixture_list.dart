@@ -60,7 +60,9 @@ class FixtureList extends ChangeNotifier{
           double? hfu = double.parse(details[6]);
           double? exp = double.parse(details[7]);
           double? factorx = double.parse(details[8]);
-          Fixture fixture = Fixture(name, p1, gpm, exp, factorx, p20, fu, cfu, hfu);
+          String tag = details[9];
+          String num = details[10];
+          Fixture fixture = Fixture(name, p1, gpm, exp, factorx, p20, fu, cfu, hfu, tag, num);
           _fixtureList.add(fixture);
         }
         getCurrentProposition(numberOfApartment);
@@ -112,6 +114,10 @@ class FixtureList extends ChangeNotifier{
   void addItem(Fixture item){
     _currentFixtureList.add(item);
     notifyListeners();
+  }
+
+  void addItemInitial(Fixture item){ // Add Items based on selected tag, no need to notify.
+    _currentFixtureList.add(item);
   }
 
   void removeItemObject(Fixture fixture){
