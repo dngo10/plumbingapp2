@@ -5,12 +5,10 @@ import 'package:myapp2/waterheater_calculator/modifed_wistort_method.dart';
 
 class ModifiedWistort extends StatefulWidget{
   const ModifiedWistort({Key? key}) : super(key: key);
-
   @override
   State<StatefulWidget> createState() {
     return _ModifiedWistort();
   }
-
 }
 
 class _ModifiedWistort extends State<ModifiedWistort>{

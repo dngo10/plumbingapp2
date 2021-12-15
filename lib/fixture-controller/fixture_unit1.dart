@@ -1,7 +1,5 @@
 import 'dart:math';
 
-import 'package:myapp2/fixture-controller/fl_controller.dart';
-
 class Fixture{
   String name = "";
   double? amount = 0;
@@ -14,6 +12,13 @@ class Fixture{
   double? fixtureUnit = 0;
   double? coldWaterFixtureUnit = 0;
   double? hotWaterFixtureUnit = 0;
+
+  double? coldWaterDia = 0;
+  double? hotWaterDia = 0;
+  double? wasteDia = 0;
+  double? ventDia = 0;
+  double? stormDrain = 0;
+  String description = "";
 
   double? curP = -9999;
   String tag = ""; // tag of label
@@ -49,7 +54,7 @@ class Fixture{
           this.num
           );
 
-  Fixture.newBlank();
+  Fixture.newBlank(){}
 
   Map<String, dynamic> toMap(){
     return {
@@ -82,7 +87,7 @@ class Fixture{
     tag = map[_tagN] as String;
     num = map[_numN] as String;
 
-    getProbability(FixtureController.fl.numberOfApartment);
+    //getProbability(.fl.numberOfApartment);
   }
 
   Fixture.copy(Fixture fixture){
@@ -117,23 +122,5 @@ class Fixture{
       curP = -9999;
     }
   }
+
 }
-
-
-//Life cycle hook sequence:
-
-/**
- * ngOnChange()
- * ngOnInit()  is a good place for a component to fetch its initial data.
- * Constructors should do no more than set the initial local variables to simple values.
- * directive's data-bound input properties are not set until after construction.
- * If you need to initialize the directive based on those properties, set them when ngOnInit() runs.
- * ngDoCheck() 
- * ngAfterContentInit()
- * ngAfterContentChecked()
- * ngAfterViewInit()
- * ngAfterViewChecked()
- * ngOnDestroy()
- * 
- * 
- */
